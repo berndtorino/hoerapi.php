@@ -3,7 +3,7 @@ namespace HoerAPI;
 
 class HoerAPI
 {
-    const URL = "http://hoersuppe.de/api";
+    const URL = "http://hoersuppe.de/api/";
 
     protected static function get(array $params = array())
     {
