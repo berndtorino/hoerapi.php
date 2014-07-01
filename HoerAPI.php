@@ -109,6 +109,12 @@ class HoerAPI
         return new PodcastDeleted($data['data']);
     }
 
+    /**
+     * Get a list of the latest episode
+     *
+     * @param int $count number of episodes
+     * @return bool|PodcastEpisodes
+     */
     public static function getLastEpisodes($count=10) {
         $data = self::get(array("action" => "getLastEpisodes", "count" => $count));
         if ($data === false || $data['status'] === 0) return false;
