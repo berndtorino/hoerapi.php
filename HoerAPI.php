@@ -109,4 +109,11 @@ class HoerAPI
         return new PodcastDeleted($data['data']);
     }
 
+    public static function getLastEpisodes($count=10) {
+        $data = self::get(array("action" => "getLastEpisodes", "count" => $count));
+        if ($data === false || $data['status'] === 0) return false;
+
+        return new PodcastEpisodes($data['data']);
+    }
+
 }
