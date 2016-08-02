@@ -7,6 +7,6 @@ class PodcastDeletedItem {
 
     public function __construct(array $data){
         $this->event_id = (int) $data['event_ID'];
-        $this->deldate = strtotime($data['deldate']);
+        $this->deldate = parseDate($data['deldate']);
     }
 }

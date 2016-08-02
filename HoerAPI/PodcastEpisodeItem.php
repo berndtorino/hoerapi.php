@@ -16,12 +16,12 @@ class PodcastEpisodeItem {
 
     public function __construct(array $data) {
         $this->id = (int) $data['ID'];
-        $this->date = strtotime($data['post_date']);
-        $this->date_gmt = strtotime($data['post_date_gmt']);
+        $this->date = parseDate($data['post_date']);
+        $this->date_gmt = parseDate($data['post_date_gmt'], 'gmt');
         $this->title = $data['post_title'];
         $this->name = $data['post_name'];
-        $this->modified = strtotime($data['post_modified']);
-        $this->modified_gmt = strtotime($data['post_modified_gmt']);
+        $this->modified = parseDate($data['post_modified']);
+        $this->modified_gmt = parseDate($data['post_modified_gmt'], 'gmt');
         $this->link = $data['post_link'];
         $this->mediaurl = $data['post_mediaurl'];
         $this->commentlink = $data['post_commentlink'];

@@ -1,5 +1,32 @@
 <?php
 namespace HoerAPI;
+use Datetime;
+use DateTimeZone;
+
+function parseDate($date, $zone = null)
+{
+    static $Local, $GMT;
+
+    switch (strtolower($zone)) {
+        case null:
+        case 'local':
+        case 'default':
+            if (!isset($Local)) {
+                 $Local = new DateTimeZone('Europe/Berlin');
+            }
+            $zone = $Local;
+            break;
+        case 'gmt':
+            if (!isset($GMT)) {
+                 $GMT = new DateTimeZone('GMT');
+            }
+            $zone = $GMT;
+            break;
+        default:
+            return null;
+    }
+    return new Datetime($date, $zone);
+}
 
 class HoerAPI
 {

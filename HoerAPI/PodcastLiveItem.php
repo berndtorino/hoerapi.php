@@ -23,7 +23,7 @@ class PodcastLiveItem {
         $this->title = $data['title'];
         $this->url = $data['url'];
         $this->streamurl = $data['streamurl'];
-        $this->livedate = strtotime($data['livedate']);
+        $this->livedate = parseDate($data['livedate']);
         $this->duration = (int) $data['duration'];
         $this->twittered = !!$data['twittered'];
     }
